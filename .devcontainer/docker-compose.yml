@@ -6,7 +6,7 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    command: uvicorn --reload saleor.asgi:application --host 0.0.0.0 --port 8000
+    command: sleep 9999999
     env_file:
       - common.env
       - backend.env
@@ -15,6 +15,8 @@ services:
       - redis
     volumes:
       - ..:/app
+    ports:
+      - 8000:8000
 
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:3.12.3
